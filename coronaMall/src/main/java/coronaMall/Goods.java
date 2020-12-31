@@ -1,15 +1,14 @@
 package coronaMall;
 
-import java.util.List;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Goods {
-	private final String goodsCode;
-	private final String goodsName;
+	private String goodsName;
 	private int goodsPrice;
-	private List<GoodsReview> goodsReview;
+	//private List<GoodsReview> goodsReview;
 	private final GoodsType goodsType;
 	
 	

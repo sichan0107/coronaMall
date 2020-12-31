@@ -3,7 +3,6 @@ package coronaMall.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
 public class CoronaMallController {
@@ -26,4 +25,16 @@ public class CoronaMallController {
 	public String findUserId() {
 		return "findUserId";
 	}
+	
+	@GetMapping("phoneAuthorizing")
+	public String phoneAuthorizing() {
+		return "phoneAuthorizing";
+	}
+	
+	
+	
+	
+	
+	
+	
 }
