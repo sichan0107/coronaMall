@@ -8,17 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class CoronaMallController {
 	@GetMapping("/")
 	public String home() {
-		return "home";
-	}
-	
-	@GetMapping("/userLogin")
-	public String userLogin() {
-		return "userLogin";
-	}
-	
-	@GetMapping("userSignUp")
-	public String userSignUp() {
-		return "userSignUp";
+		return "index";
 	}
 	
 	@GetMapping("findUserId")
@@ -31,7 +21,38 @@ public class CoronaMallController {
 		return "phoneAuthorizing";
 	}
 	
+	@GetMapping("cart")
+	public String cart() {
+		return "cart";
+	}
 	
+	@GetMapping("join")
+	public String join() {
+		return "join";
+	}
+	
+	@GetMapping("login")
+	public String login() {
+		return "login";
+	}
+	
+	@GetMapping("life")
+	public String life() {
+		return "life";
+	}
+	
+	@GetMapping("food")
+	public String food() {
+		return "food";
+	}
+	@GetMapping("easywear")
+	public String easywear() {
+		return "easywear";
+	}
+	@GetMapping("cosmetics")
+	public String cosmetics() {
+		return "cosmetics";
+	}
 	
 	
 	
