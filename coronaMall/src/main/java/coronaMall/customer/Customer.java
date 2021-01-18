@@ -1,5 +1,7 @@
 package coronaMall.customer;
 
+import java.sql.Date;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -32,5 +34,12 @@ public class Customer {
 	
 	@NotBlank
 	private String email;
+	
+	@NotNull
+	private Date createdDate;
+	
+	private Date deletedDate;
+	
+	
 	
 }
