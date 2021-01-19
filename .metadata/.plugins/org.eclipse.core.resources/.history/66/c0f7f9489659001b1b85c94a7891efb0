@@ -1,0 +1,20 @@
+package coronaMall.goods;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+
+@Entity
+public class Cosmetic {
+	@Id
+	private final String id;
+	private String goodsName;
+	private int goodsPrice;
+	private String company;
+	private String goodsContents;
+}

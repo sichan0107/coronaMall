@@ -1,0 +1,12 @@
+package coronaMall.goods;
+
+import lombok.Data;
+
+@Data
+public class Cosmetic {
+	private final String id;
+	private String goodsName;
+	private int goodsPrice;
+	private String company;
+	private String goodsContents;
+}
