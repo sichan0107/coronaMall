@@ -33,25 +33,7 @@ public class Goods {
 	private String goods_img; // 대표 이미지 경로
 	@NotBlank
 	private String goods_description; // 상세 설명 이미지 경로 
-	
-<<<<<<< HEAD
-	
-	private int goods_stock;
-	
-	private int goods_hitcnt;
-	
-//	@NotNull
-//	private final Type type;
-//	
-//	public static enum Type {
-//		COSMETIC, LIFE
-//	}
-	
-	//private LocalDateTime createdDateTime = LocalDateTime.now();
-	//private List<GoodsReview> goods_reviews;
-=======
->>>>>>> develop
-}
+
 //	private int goods_stock;
 //	
 //	private int goods_hitcnt;
