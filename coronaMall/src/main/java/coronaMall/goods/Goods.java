@@ -39,13 +39,13 @@ public class Goods {
 	
 	private int goods_hitcnt;
 	
-	@NotNull
-	private final Type type;
-	
-	public static enum Type {
-		COSMETIC, LIFE
-	}
+//	@NotNull
+//	private final Type type;
+//	
+//	public static enum Type {
+//		COSMETIC, LIFE
+//	}
 	
 	//private LocalDateTime createdDateTime = LocalDateTime.now();
-	private List<GoodsReview> goods_reviews;
+	//private List<GoodsReview> goods_reviews;
 }
