@@ -11,8 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.CreditCardNumber;
-
 import lombok.Data;
 
 @Data
@@ -21,7 +19,7 @@ import lombok.Data;
 public class Customer {
 	@Id
 	@Size(min=8, max=12, message="8~12 글자를 입력해주세요.")
-	private  String id;
+	private String id;
 	
 	@NotBlank
 	@Size(min=10, max=12, message="10~12 글자를 입력해주세요.")
