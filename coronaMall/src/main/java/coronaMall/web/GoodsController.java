@@ -18,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class GoodsController {
 	
 	//localhost:8080/goods로 접속하면 showGoods가 실행된다.
+
 	@GetMapping
 	public String showGoods(Model model) {
 		List<Goods> goods = Arrays.asList();
@@ -25,6 +26,8 @@ public class GoodsController {
 		//서블릿 요청 속성들로 복사된다.
 		return "showGoods";
 	}
+
+
 	
 //	private List<Goods> filterByType(List<Goods> goodsList, GoodsType goodsType){
 //		return goodsList
@@ -32,9 +35,7 @@ public class GoodsController {
 //				.filter(x -> x.getGoodsType().equals(goodsType))
 //				.collect(Collectors.toList());
 //	}
-		
-		
-		
-		
-		
+
+//	}
+
 }
