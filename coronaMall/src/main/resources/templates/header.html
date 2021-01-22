@@ -20,11 +20,11 @@ xmlns="http://www.w3.org/1999/xhtml"
                                 <a th:href="@{/join}">회원가입</a>
                             </div>
                             <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                                <span>언어선택 <i class="arrow_carrot-down"></i></span>
                                 <ul>
                                     <li>USD</li>
+                                    <li>KOR</li>
                                     <li>EUR</li>
-                                    <li>USD</li>
                                 </ul>
                             </div>
                         </div>
@@ -36,17 +36,16 @@ xmlns="http://www.w3.org/1999/xhtml"
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/Corona-Mall-logo.png" alt=""></a>
+                        <a th:href="@{./}"><img src="img/Corona-Mall-logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li><a href="./life.html">Life</a></li>
-                            <li><a href="./food.html">Food</a></li>
+                            <li><a th:href="@{./shop}">상품</a></li>
+                            <li><a th:href="@{./food}">Food</a></li>
                             <li><a href="./easywear.html">Easywear</a></li>
                             <li><a href="./cosmetic.html">Cosmetics</a></li>
-                            <li><a href="./blog.html">News</a></li>
                         </ul>
                     </nav>
                 </div>

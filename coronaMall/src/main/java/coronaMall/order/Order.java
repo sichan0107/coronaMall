@@ -3,13 +3,7 @@ package coronaMall.order;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -25,8 +19,8 @@ public class Order {
 	
 	private int order_total;
 	
-	@OneToMany
-	@JoinColumn(name = "customer_customer_id")
+//	@OneToMany
+//	@JoinColumn(name = "customer_id")
 	private String customer_id;
 	
 }
