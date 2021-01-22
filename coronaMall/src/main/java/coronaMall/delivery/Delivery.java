@@ -21,11 +21,11 @@ public class Delivery {
     private DeliveryStatus status;
 	
 	
-	@OneToOne
+	//@OneToOne
 	@JoinColumn(name = "order_order_id")
 	private int order_id;
 	
-	@OneToOne
+	//@OneToOne
 	@JoinColumn(name = "order_customer_customer_id")
 	private String customer_id;
 	

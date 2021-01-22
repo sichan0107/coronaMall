@@ -25,8 +25,8 @@ public class Order {
 	
 	private int order_total;
 	
-	@OneToMany
-	@JoinColumn(name = "customer_customer_id")
-	private String customer_id;
+//	@OneToMany
+//	@JoinColumn(name = "customer_customer_id")
+//	private String customer_id;
 	
 }

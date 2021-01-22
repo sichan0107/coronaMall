@@ -36,23 +36,7 @@ public class CoronaMallController {
 		return "login";
 	}
 	
-	@GetMapping("life")
-	public String life() {
-		return "life";
-	}
-	
-	@GetMapping("food")
-	public String food() {
-		return "food";
-	}
-	@GetMapping("easywear")
-	public String easywear() {
-		return "easywear";
-	}
-	@GetMapping("cosmetics")
-	public String cosmetics() {
-		return "cosmetics";
-	}
+
 	
 	
 	
