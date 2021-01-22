@@ -35,7 +35,7 @@ public class CoronaMallController {
 	public String login() {
 		return "login";
 	}
-	
+
 	@GetMapping("shop")
 	public String life() {
 		return "shop";
@@ -53,9 +53,6 @@ public class CoronaMallController {
 	public String cosmetics() {
 		return "cosmetics";
 	}
-	
-	
-	
 	
 	
 }

@@ -1,8 +1,0 @@
-package coronaMall.goods;
-
-import lombok.Data;
-
-@Data
-public class Life {
-	private String goodsName;
-}

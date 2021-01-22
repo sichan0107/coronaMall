@@ -48,3 +48,4 @@ public class Goods {
 //	//private LocalDateTime createdDateTime = LocalDateTime.now();
 //	private List<GoodsReview> goods_reviews;
 //}
+}
