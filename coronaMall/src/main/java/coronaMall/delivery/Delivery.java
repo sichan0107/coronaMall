@@ -7,6 +7,7 @@ import lombok.Data;
 @Entity
 @Table(name = "deliveries")
 @Data
+// 아직 안건듬
 public class Delivery {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +19,7 @@ public class Delivery {
 	}
 	
 	@Enumerated(value = EnumType.STRING)
+	//string으로 해야 중간에 추가되어도 문제 안생김
     private DeliveryStatus status;
 	
 	
@@ -29,5 +31,4 @@ public class Delivery {
 	@JoinColumn(name = "order_customer_customer_id")
 	private String customer_id;
 	
-
 }
