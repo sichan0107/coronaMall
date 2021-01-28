@@ -1,66 +1,78 @@
 <!DOCTYPE html>
-<html lang="zxx"
-xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="zxx" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-7">
-                        <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-5">
-                        <div class="header__top__right">
-                            <div class="header__top__links">
-                                <a th:href="@{/login}">로그인</a>
-                                <a th:href="@{/join}">회원가입</a>
-                            </div>
-                            <div class="header__top__hover">
-                                <span>언어선택 <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>KOR</li>
-                                    <li>EUR</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
-                        <a th:href="@{./}"><img src="img/Corona-Mall-logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li><a th:href="@{./shop}">상품</a></li>
-                            <li><a th:href="@{./food}">Food</a></li>
-                            <li><a href="./easywear.html">Easywear</a></li>
-                            <li><a href="./cosmetic.html">Cosmetics</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
-        </div>
-    </header>
+<!-- Header Section Begin -->
+<header class="header">
+	<div class="header__top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-7">
+					<div class="header__top__left">
+						<p>Free shipping, 30-day return or refund guarantee.</p>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-5">
+					<div class="header__top__right">
+						<div class="header__top__links">
+							<span sec:authorize="isAnonymous()">
+								<a th:href="@{/login}">로그인</a> <a th:href="@{/register}">회원가입</a>
+							</span>
+							<span sec:authorize="isAuthenticated()">
+								<!--  Name: <span sec:authentication="customer.fullname">  이 부분 일단 삭제-->
+								<span>
+									<a th:href="@{/customer}" id="mypage">마이페이지</a>
+									
+									<a th:href="@{/order}" id="order">주문서</a>
+								
+									<form method="post" th:action="@{/logout}">
+										<input type="submit" value="Logout" />
+									</form>
+								</span>
+							</span>
+								
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3">
+				<div class="header__logo">
+					<a th:href="@{./}"><img src="img/Corona-Mall-logo.png" alt=""></a>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<nav class="header__menu mobile-menu">
+					<ul>
+						<li><a th:href="@{./shop}">상품</a></li>
+						<li><a th:href="@{./food}">Food</a></li>
+						<li><a href="./easywear.html">Easywear</a></li>
+						<li><a href="./cosmetic.html">Cosmetics</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-lg-3 col-md-3">
+				<div class="header__nav__option">
+					<a href="#" class="search-switch"><img
+						src="img/icon/search.png" alt=""></a> <a href="#"><img
+						src="img/icon/heart.png" alt=""></a> <a href="#"><img
+						src="img/icon/cart.png" alt=""> <span>0</span></a>
+					<div class="price">$0.00</div>
+				</div>
+			</div>
+		</div>
+		<div class="canvas__open">
+			<i class="fa fa-bars"></i>
+		</div>
+	</div>
+</header>
 
 
 </html>

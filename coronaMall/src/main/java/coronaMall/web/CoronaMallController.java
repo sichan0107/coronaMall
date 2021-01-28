@@ -1,15 +1,17 @@
 package coronaMall.web;
 
+import java.io.IOException;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import coronaMall.customer.Customer;
 
 
 @Controller
 public class CoronaMallController {
-	@GetMapping("/")
-	public String home() {
-		return "index";
-	}
 	
 	@GetMapping("findUserId")
 	public String findUserId() {
@@ -25,15 +27,11 @@ public class CoronaMallController {
 	public String cart() {
 		return "cart";
 	}
+
 	
-	@GetMapping("join")
-	public String join() {
-		return "join";
-	}
-	
-	@GetMapping("login")
-	public String login() {
-		return "login";
+	@GetMapping("/login?error")
+	public String loginFail() throws IOException{
+		return "redirect:/loginError";
 	}
 
 	@GetMapping("shop")
@@ -41,18 +39,6 @@ public class CoronaMallController {
 		return "shop";
 	}
 	
-	@GetMapping("food")
-	public String food() {
-		return "shop-details";
-	}
-	@GetMapping("easywear")
-	public String easywear() {
-		return "easywear";
-	}
-	@GetMapping("cosmetics")
-	public String cosmetics() {
-		return "cosmetics";
-	}
 	
 	
 }

@@ -3,41 +3,77 @@ package coronaMall.security;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
 public class SequrityConfig extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+    @Bean
+    public SpringSecurityDialect springSecurityDialect(){
+        return new SpringSecurityDialect();
+    }
+	
+	@Override
+	public void configure(WebSecurity web) { 
+	   web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+	 }	
+	
+	
 	// HTTP 보안 구성 메서드
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests()
-				.antMatchers("/login", "/order").authenticated()
+			.authorizeRequests() //url 경로 혹은 패턴을 입력해서 그 경로의 보안 요구사항을 구성하게 함.
+				.antMatchers("/customer", "/purchase", "/order") //먼저 권한 부여가 필요한 경로가 나와야한다. permitAll 경로가 먼저 나와버리면 무용지물.
+				.access("hasRole('ROLE_USER')") //경로 보안 처리 메소드 사용보다 access랑 SpEL 표현식을 쓰는게 훨씬 범용적이다.
 				.antMatchers("/", "/**").access("permitAll")
+			
+			.and() //메서드 인증 구성이 끝나서 추가 구성을 적용시킨다는 표현
+				.formLogin()
+				.loginPage("/login")
+				.defaultSuccessUrl("/", true)
+				.failureUrl("/login")
+				.usernameParameter("username")
+				.passwordParameter("password")
 			.and()
-				.httpBasic();
+				.logout()
+					.logoutSuccessUrl("/")
+					.invalidateHttpSession(true)
+			.and()
+				.csrf();
 
 	}
-
 	// JDBC 사용자 스토어 방식을 채택
-	@Autowired
-	DataSource dataSource;
-
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
-			.jdbcAuthentication()
-			.dataSource(dataSource)
-			.usersByUsernameQuery("select username, password, enabled from customer where username=?")
-			.authoritiesByUsernameQuery("select username, authority from authorities where username=?")
-			.passwordEncoder(new BCryptPasswordEncoder());
+			.userDetailsService(userDetailsService)
+			.passwordEncoder(encoder());
+		
+//			.jdbcAuthentication()
+//			.dataSource(dataSource)
+//			.usersByUsernameQuery("select username, password, enabled from customer where username=?")
+//			.authoritiesByUsernameQuery("select username, authority from authorities where username=?")
+//			.passwordEncoder(new BCryptPasswordEncoder());
+	}
+	
+	@Bean
+	public PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder();
 	}
 
 	

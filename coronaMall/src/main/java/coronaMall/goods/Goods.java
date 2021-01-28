@@ -33,7 +33,7 @@ public class Goods {
 	private String goods_img; // 대표 이미지 경로
 	@NotBlank
 	private String goods_description; // 상세 설명 이미지 경로 
-}
+
 //	private int goods_stock;
 //	
 //	private int goods_hitcnt;

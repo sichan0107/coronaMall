@@ -82,7 +82,11 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="#">
+  				<div th:if="${error}">로그인을 할 수 없습니다. ID와 Password를 다시 확인해주세요.</div>          
+  					
+  				<p>회원가입은 <a th:href="@{/register}">여기</a>를 눌러주세요.</p>
+            
+                <form method="POST" th:action="@{/login}" id="loginForm">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h6 class="coupon__code"><span class="icon_tag_alt"></span>계정을 잊으셨나요? <a href="#">Click
@@ -91,13 +95,13 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>ID</p>
-                                        <input type="text">
+                                        <input type="text" name="username" id="username">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Password</p>
-                                        <input type="password">
+                                        <input type="password" name="password" id="password">
                                     </div>
                                 </div>
                             </div>
