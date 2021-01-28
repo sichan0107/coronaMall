@@ -34,11 +34,17 @@ public class CoronaMallController {
 		return "redirect:/loginError";
 	}
 
-	@GetMapping("shop")
-	public String life() {
-		return "shop";
-	}
+//	@GetMapping("shop")
+//	public String life() {
+//		return "shop";
+//	}
 	
+
+	@GetMapping("shop-detail")
+	public String food() {
+		return "shop-details";
+	}
+
 	
 	
 }

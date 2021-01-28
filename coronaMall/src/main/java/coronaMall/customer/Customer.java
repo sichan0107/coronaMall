@@ -1,6 +1,7 @@
 package coronaMall.customer;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -15,6 +16,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.IdClass;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -22,6 +26,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import coronaMall.order.Order;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,10 +37,10 @@ import lombok.RequiredArgsConstructor;
 @Table(name = "customer")
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @RequiredArgsConstructor
-public class Customer implements UserDetails{
+public class Customer implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -72,7 +77,6 @@ public class Customer implements UserDetails{
 	private final LocalDateTime created = LocalDateTime.now();
 	
 	
-	// 해당 사용자에게 부여된 권한을 저장한 컬렉션을 반환 (리스트로 받는다)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
@@ -84,22 +88,33 @@ public class Customer implements UserDetails{
 	public boolean isAccountNonExpired() {
 		return true;
 	}
-    // 계정 잠김 여부
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
-	//패스워드 만료 여부
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
-	//계정 사용 가능여부
+
 	@Override
 	public boolean isEnabled() {
 		return true;
 	}
-	
-	
-	
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@OneToMany(mappedBy = "customer")
+	// customer를 이용해 값을 보여주기만한다 수정 못함
+	private List<Order> orderList = new ArrayList<>();
 }
