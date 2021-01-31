@@ -20,6 +20,10 @@ public class CustomerRepositoryCustomerDetailService implements UserDetailsServi
 		this.customerRepo = customerRepo;
 	}
 	
+	public int idCheckService(String username) {
+		return customerRepo.countByUsername(username);
+	}
+	
 	
 	// loadUserByUserName에는 반드시 null을 반환하지 않는다는 규칙이 있다.
 	@Override

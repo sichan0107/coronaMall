@@ -2,169 +2,245 @@
 <html lang="zxx">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Male_Fashion Template">
-    <meta name="keywords" content="Male_Fashion, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+<meta charset="UTF-8">
+<meta name="description" content="Male_Fashion Template">
+<meta name="keywords" content="Male_Fashion, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="_csrf" th:content="${_csrf.token}">
+<meta name="_csrf_header" th:content="${_csrf.headerName}">
+<title>Male-Fashion | Template</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+	rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__option">
-            <div class="offcanvas__links">
-                <a href="#">Sign in</a>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div>
-        </div>
-        <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-            <a href="#"><img src="img/icon/heart.png" alt=""></a>
-            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">$0.00</div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
+	<!-- Offcanvas Menu Begin -->
+	<div class="offcanvas-menu-overlay"></div>
+	<div class="offcanvas-menu-wrapper">
+		<div class="offcanvas__option">
+			<div class="offcanvas__links">
+				<a href="#">Sign in</a> <a href="#">FAQs</a>
+			</div>
+			<div class="offcanvas__top__hover">
+				<span>Usd <i class="arrow_carrot-down"></i></span>
+				<ul>
+					<li>USD</li>
+					<li>EUR</li>
+					<li>USD</li>
+				</ul>
+			</div>
+		</div>
+		<div class="offcanvas__nav__option">
+			<a href="#" class="search-switch"><img src="img/icon/search.png"
+				alt=""></a> <a href="#"><img src="img/icon/heart.png" alt=""></a>
+			<a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+			<div class="price">$0.00</div>
+		</div>
+		<div id="mobile-menu-wrap"></div>
+		<div class="offcanvas__text">
+			<p>Free shipping, 30-day return or refund guarantee.</p>
+		</div>
+	</div>
+	<!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header th:replace="header" :: "header"></header>
-    <!-- Header Section End -->
+	<!-- Header Section Begin -->
+	<header th:replace="header":: "header"></header>
+	<!-- Header Section End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h4>회원가입</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-option">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="breadcrumb__text">
+						<h4>회원가입</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
 
-    <!-- Checkout Section Begin -->
-    <section class="checkout spad">
-        <div class="container">
-            <div class="checkout__form">
-                <form method="POST" th:action="@{/register}" id="registerForm">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> 계정을 잊으셨습니까? <a href="findUser">여기를
-                                                               눌러주세요.</a> </h6>
-                            <h6 class="checkout__title">필수 입력 사항</h6>
-                            <div class="row">
-                            	<lable><input type="radio" name="athority" value="customer">고객</lable>
-                            	<lable><input type="radio" name="athority" value="admin">관리자</lable>
-                            </div>
-                            <div class="checkout__input">
-                            	<p>이름<span>*</span></p>
-                            	<input type="text" name="fullname">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>ID<span>*</span></p>
-                                        <input type="text" name="username">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Password<span>*</span></p>
-                                        <input type="password" name="password">
-                                    </div>
-                                </div>
-                            </div>
-          
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="도로명 주소" name="address" class="checkout__input__add">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text" name="phone">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text" name="email">
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="col-lg-4 col-md-6">
-                             <button type="submit" value="Register/" class="site-btn">회원가입</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- Checkout Section End -->
+	<!-- Checkout Section Begin -->
+	<section class="checkout spad">
+		<div class="container">
+			<div class="checkout__form">
+				<form method="POST" th:action="@{/register}" id="registerForm" >
+					<div class="row">
+						<div class="col-lg-8 col-md-6">
+							<h6 class="coupon__code">
+								<span class="icon_tag_alt"></span> 계정을 잊으셨습니까? <a
+									href="findUser">여기를 눌러주세요.</a>
+							</h6>
+							<h6 class="checkout__title">필수 입력 사항</h6>
+							<div class="checkout__input">
+								<p>
+									이름<span>*</span>
+								</p>
+								<input type="text" id="fullname" name="fullname" minlength=2 maxlength=4 pattern="[가-힣]{2,4}" required="required">
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="checkout__input">
+										<p>
+											ID<span>*</span>
+										</p>
+										<input type="text" placeholder="영문 대소문자, 숫자를 조합한 8~10글자" pattern="[a-zA-Z0-9]{8,10}" id="username" name="username" required="required" minlength="8" maxlength=10>
+										
+									</div>
+								</div>
+								<div class="col-lg-6">
+										<p>
+											ID 중복확인<span>*</span>
+										</p>
+										<input type="button" id="username_check" name="username_check" onclick="idcheck();" pattern="[a-zA-Z0-9]{8,10}" minlength="8" maxlength="10" required="required" value="check" class="site-btn">
+								
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="checkout__input">
+										<p>
+											Password<span>*</span>
+										</p>
+										<input type="password" placeholder="영문 대소문자, 숫자를 조합한 8~10글자" id="password" pattern="[a-zA-Z0-9]{8,10}" minlength="8" maxlength="10" name="password" required="required">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="checkout__input">
+										<p>
+											Password 확인<span>*</span>
+										</p>
+										<input type="password" placeholder="비밀번호 확인" id="password_check" name="password_check" pattern="[a-zA-Z0-9]{8,10}" minlength="8" maxlength="10" required="required">
+									</div>
+								</div>
+							
+							</div>
 
-    <!-- Footer Section Begin -->
-    <footer th:replace="footer" :: "footer"></footer>
-    <!-- Footer Section End -->
+							<div class="checkout__input">
+								<p>
+									Address<span>*</span>
+								</p>
+								<input type="text" placeholder="도로명 주소" name="address" class="checkout__input__add" required="required">
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="checkout__input">
+										<p>
+											Phone<span>*</span>
+										</p>
+										<input type="text" placeholder="010-0000-0000" id="phone" pattern="01[0-9]-[0-9]{4}-[0-9]{4}" minlength="13" maxlength="13" name="phone" required="required">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="checkout__input">
+										<p>
+											Email<span>*</span>
+										</p>
+										<input type="text" id="email" name="email" pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}" 
+													placeholder="example@gmail.com" required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-4 col-md-6">
+									<input type="submit" onclick="registFormValidation();" value="회원가입" class="site-btn">
+								</div>
+							</div>
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<!-- Checkout Section End -->
 
-    <!-- Search Begin -->
-    <div class="search-model">
-        <div class="h-100 d-flex align-items-center justify-content-center">
-            <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
-            </form>
-        </div>
-    </div>
-    <!-- Search End -->
+	<!-- Footer Section Begin -->
+	<footer th:replace="footer":: "footer"></footer>
+	<!-- Footer Section End -->
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+	<!-- Search Begin -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search End -->
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery.nicescroll.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	// 비동기 ID 중복 검사
+
+	function idcheck(){		
+		var id = {"username" : $('#username').val()};
+		console.log(id);
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		$(document).ajaxSend(function(e, xhr, options) {
+		   xhr.setRequestHeader(header, token);
+		});
+		$.ajax({
+			url:"register/idCheck",
+			//data: JSON.stringify(id), --> 이거 주의.....
+			data:id,
+			type:"POST",
+			contentType: "application/x-www-form-urlencoded; charset=utf-8;",
+			//dataType: "json",
+			success: function(result){
+				if(result == 1){
+					alert("사용중인 아이디입니다.");
+				}else if(result == 0){
+					alert("사용가능한 아이디입니다.");
+				}
+			},
+			error : function(request, status, error){
+				console.log("code:"+request.status+"\n"+"message:"+request.responseText +"\n"+"error:" + error);
+				alert("중복검사 에러 발생");
+			}
+			
+		});
+	};
+
+	
+	
+	</script>
+
+
 </body>
 
 </html>

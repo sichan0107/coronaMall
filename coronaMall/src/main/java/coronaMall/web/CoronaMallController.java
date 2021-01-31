@@ -27,7 +27,10 @@ public class CoronaMallController {
 	public String cart() {
 		return "cart";
 	}
-
+	@GetMapping("login")
+	public String login() {
+		return "login";
+	}
 	
 	@GetMapping("/login?error")
 	public String loginFail() throws IOException{
