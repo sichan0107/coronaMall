@@ -75,8 +75,8 @@ public class Customer implements UserDetails {
 	
 	@Column(nullable = false)
 	private final LocalDateTime created = LocalDateTime.now();
-	
-	
+
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));

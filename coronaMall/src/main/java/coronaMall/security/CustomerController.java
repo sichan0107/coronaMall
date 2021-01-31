@@ -23,8 +23,6 @@ public class CustomerController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Customer customer = (Customer)auth.getPrincipal();
 		
-		
-		//String username = auth.getName();
 		model.addAttribute("customer", customer);
 		return "mypage";
 	}
