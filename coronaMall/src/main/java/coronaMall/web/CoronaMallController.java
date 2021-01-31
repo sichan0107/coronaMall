@@ -36,6 +36,7 @@ public class CoronaMallController {
 	public String loginFail() throws IOException{
 		return "redirect:/loginError";
 	}
+	
 
 //	@GetMapping("shop")
 //	public String life() {
