@@ -27,13 +27,17 @@ public class SequrityConfig extends WebSecurityConfigurerAdapter {
         return new SpringSecurityDialect();
     }
 	
+    // 스프링 시큐리티의 필터 연결을 설정하기 위한 오버라이딩이다.
+    // 예외가 웹접근 URL를 설정한다.
 	@Override
 	public void configure(WebSecurity web) { 
 	   web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+	   web.ignoring().antMatchers("/favicon.ico");
 	 }	
 	
 	
 	// HTTP 보안 구성 메서드
+	// 인터셉터로 요청을 안전하게 보호하는 방법을 설정하기 위한 오버라이딩이다.
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -45,8 +49,9 @@ public class SequrityConfig extends WebSecurityConfigurerAdapter {
 			.and() //메서드 인증 구성이 끝나서 추가 구성을 적용시킨다는 표현
 				.formLogin()
 				.loginPage("/login")
+				//.loginProcessingUrl("/customer/processLogin")// view form의 action과 맞아야함
 				.defaultSuccessUrl("/", true)
-				.failureUrl("/login")
+				.failureUrl("/error")
 				.usernameParameter("username")
 				.passwordParameter("password")
 			.and()
@@ -58,6 +63,7 @@ public class SequrityConfig extends WebSecurityConfigurerAdapter {
 
 	}
 	// JDBC 사용자 스토어 방식을 채택
+	// 사용자 세부 서비스를 설정하기 위한 오버라이딩이다.
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth

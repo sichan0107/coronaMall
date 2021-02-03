@@ -2,7 +2,6 @@ package coronaMall.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import coronaMall.customer.Authority;
 import coronaMall.customer.Customer;
 import lombok.Data;
 
@@ -14,11 +13,11 @@ public class RegistrationForm {
 	private String address;
 	private String phone;
 	private String email;
-	private Authority authority;
+	private String auth;
 
 	public Customer toCustomer(PasswordEncoder passwordEncoder) {
 		return new Customer(
 				username, passwordEncoder.encode(password),
-				fullname, phone, address, email, authority);
+				fullname, phone, address, email, auth);
 	}
 }

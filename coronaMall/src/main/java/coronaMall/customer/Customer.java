@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,6 +30,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import coronaMall.order.Order;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +40,7 @@ import lombok.RequiredArgsConstructor;
 @Table(name = "customer")
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force=true)
 @RequiredArgsConstructor
-public class Customer implements UserDetails {
+public class Customer implements UserDetails{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -68,10 +71,9 @@ public class Customer implements UserDetails {
 	@Column(nullable = false)
 	private final String email;
 	
-    @OneToOne
-    @JoinColumn(name="authorities_id")
-    private final Authority authority;
-	
+    @Column(nullable = false)
+    private final String auth;
+    
 	
 	@Column(nullable = false)
 	private final LocalDateTime created = LocalDateTime.now();
@@ -79,7 +81,11 @@ public class Customer implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+		Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
+		for(String role : auth.split(",")) {
+			roles.add(new SimpleGrantedAuthority(role));
+		}
+		return roles;
 	}
 
 	// Expired가 붙은 메소드 명들은 사용자의 활성화 여부를 나타낸다
@@ -104,14 +110,12 @@ public class Customer implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
+		return password;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return username;
 	}
 
 	@OneToMany(mappedBy = "customer")

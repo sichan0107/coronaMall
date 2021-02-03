@@ -1,7 +1,8 @@
+			
 <!DOCTYPE html>
-<html lang="zxx" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="zxx"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -61,91 +62,19 @@
         </div>
     </div>
     <!-- Offcanvas Menu End -->
-
-    <!-- Header Section Begin -->
+	
+	<!-- Header Section begin -->
     <header th:replace="header" :: "header"></header>
     <!-- Header Section End -->
-
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h3><span th:text="${customer.fullname}"></span>님의 마이페이지</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-    <!-- Checkout Section End -->
-    	<!-- Checkout Section Begin -->
 	<section class="checkout spad">
-		<div class="container">
-			<div class="checkout__form">
-				<form method="POST" th:action="@{/customer/updateCustomerInfo}" id="registerForm" >
-					<div class="row">
-						<div class="col-lg-8 col-md-6">
-							<h6 class="coupon__code">
-								<span class="icon_tag_alt"></span> 비밀번호 재설정은 <a href="/customer/updatePassword">여기를 눌러주세요.</a>
-							</h6>
-							<h6 class="checkout__title">상세 정보</h6>
-							<div class="checkout__input">
-								<p>
-									이름<span>*</span>
-								</p>
-								<input type="text" id="fullname" name="fullname" th:value="${customer.fullname}" readonly>
-							</div>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="checkout__input">
-										<p>
-											ID<span>*</span>
-										</p>
-										<input type="text" id="username" name="username" th:value="${customer.username}" readonly>
-										<input type="hidden" id="password" name="password" th:value="${customer.password}" >
-										<input type="hidden" id="auth" name="auth" th:value="${customer.auth}" >
-										
-									</div>
-								</div>
-							</div>
-							<div class="checkout__input">
-								<p>
-									Address<span>*</span>
-								</p>
-								<input type="text" placeholder="도로명 주소" name="address" class="checkout__input__add" th:value="${customer.address}" required="required">
-							</div>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="checkout__input">
-										<p>
-											Phone<span>*</span>
-										</p>
-										<input type="text" th:value="${customer.phone}" id="phone" pattern="01[0-9]-[0-9]{4}-[0-9]{4}" minlength="13" maxlength="13" name="phone" required="required">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="checkout__input">
-										<p>
-											Email<span>*</span>
-										</p>
-										<input type="text" id="email" name="email" pattern="[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}" 
-													th:value="${customer.email}" required="required">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-4 col-md-6">
-									<input type="submit" value="회원정보 수정" class="site-btn">
-								</div>
-							</div>
-						</div>
-				</form>
+    	<div class="container">
+			<div class="error">
+				<h4>Error Page</h5>
+				<p>메인페이지로 돌아가려면 루피를 눌러주세요</p>
+				<a th:href="@{/}" ><img id="loopy" th:src="@{/img/maskloopy.jpg}"/></a>	
 			</div>
 		</div>
 	</section>
-
     <!-- Footer Section Begin -->
     <footer th:replace="footer" :: "footer"></footer>
     <!-- Footer Section End -->
