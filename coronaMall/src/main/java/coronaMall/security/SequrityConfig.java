@@ -55,6 +55,7 @@ public class SequrityConfig extends WebSecurityConfigurerAdapter {
 					.invalidateHttpSession(true)
 			.and()
 				.csrf();
+		System.out.println(http);
 
 	}
 	// JDBC 사용자 스토어 방식을 채택
